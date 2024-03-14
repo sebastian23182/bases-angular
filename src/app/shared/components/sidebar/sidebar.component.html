@@ -1,0 +1,11 @@
+<div id="sidebar" class="bg-dark border-right p-3" [ngClass]="showSideBar ? 'show' : 'hide'">
+    <h3 class="text-light">GifsApp</h3>
+    <svg id="menu-bar" xmlns="http://www.w3.org/2000/svg" (click)="toggleSideBarWidth()" viewBox="0 0 24 24" fill="rgba(251, 251, 251, 1)"><path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z"></path></svg>
+    <hr class="text-white">
+    <div *ngIf="showSideBar" class="list-group list-reset">
+        <button *ngFor="let tag of tagHistory" (click)="searchTag(tag)" class="list-group-item list-group-item-action text-break d-flex justify-content-between align-items-center gap-3">
+                {{ tag | titlecase }}
+                <svg id="delete-button" (click)="deleteTag(tag)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="rgba(33, 37, 41, 1)"><path d="M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM9 11V17H11V11H9ZM13 11V17H15V11H13ZM9 4V6H15V4H9Z"></path></svg>
+        </button>
+    </div>
+</div>
